@@ -3,14 +3,13 @@ class Calculator{
 	//constructor
 	Calculator(){
 		System.out.println("this is constructor");
+	
 	}
-	Calculator(int n1, int n2){
-		System.out.println("division="+(n1/n2));
-	}
-	//method
+	// Instanc method
 	int sub(int n1, int n2) {
 		return n1-n2;
 	}
+	//static method
 	static int mul (int n1, int n2) {
 		return n1*n2;
 	}
@@ -25,11 +24,15 @@ public class methodRefMain {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Calculator c= new Calculator();
-		Calc c3=Calculator::new;
+		int r= c.sub(100,20);
+		System.out.println("substraction="+r);
+		Calc c1= c::sub;
+		 int r1= c.sub(10, 20);
+		 System.out.println("sub="+r1);
 		//constructor by refrencing passing but it should not return type
 		//it will match according to signature match int
 
-		c3.cal(100, 20);
+
 	}
 
 }
