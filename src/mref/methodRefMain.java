@@ -26,9 +26,29 @@ public class methodRefMain {
 		Calculator c= new Calculator();
 		int r= c.sub(100,20);
 		System.out.println("substraction="+r);
+		//instance variable
+		//objectReference::method name
 		Calc c1= c::sub;
 		 int r1= c.sub(10, 20);
 		 System.out.println("sub="+r1);
+		 // for static method
+		 //ClassName::method name
+		 Calc c2=Calculator::mul;
+		 int m1= c2.cal(100.5);
+		 System.out.println("static code="+c2);
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
 		//constructor by refrencing passing but it should not return type
 		//it will match according to signature match int
 
