@@ -15,7 +15,7 @@ public class mapPractice1_1 {
 		ArrayList<String> list= new ArrayList<String>();
 		list.addAll(names);
 		
-		List<String> result=  names.stream().
+		List<String> result=  list.stream().
 				map(String::toUpperCase)
 				.collect(Collectors.toList());
 		System.out.println(result);
