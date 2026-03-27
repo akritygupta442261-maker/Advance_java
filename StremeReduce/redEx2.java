@@ -3,6 +3,7 @@ package StremeReduce;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -11,28 +12,81 @@ public class redEx2 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
+		
+		//2 Find product of all elements
+		
+		List<Integer>  listss= Arrays.asList(2,3,4,5);
+		int product= listss.stream().reduce(1,(a,b)->a*b);
+		System.out.println("product="+ product);  
+		// maximum
+		List<Integer>  list2= Arrays.asList(2,3,4,5);
+		Optional<Integer> maximum= list2.stream().reduce((a,b)->a>b?a:b);
+		System.out.println(maximum.get());
+		
+		//minimum
+
+		
+		Optional<Integer> min= list2.stream().reduce((a,b)->a<b?a:b);
+		System.out.println(min.get());
+		
+		//Count total elements using reduce
+		int count= list2.stream().reduce(0, (a,b)->a+1);
+		System.out.println("cout="+count);
+		
+		//even no sum
+		Integer even= list2.stream().filter(x->x%2==0).reduce(0,(a,b)->a+b);
+		System.out.println("even="+even);
+		
+		
+		//Convert list into single string
+		List<String> ele= Arrays.asList("Java", "Stream", "API");
+		String result= ele.stream().reduce("",(a,b)->a+b+"");
+		System.out.println(result);
+		
+		//sum of square
+		  
+		int square= list2.stream().map(x->x*x).reduce(0,(a,b)->a+b);
+		System.out.println("sq="+square);
+		
+		//2nd heighest
+		
+		int second= list2.stream().sorted((a,b)->b-a).skip(1).findFirst().get();
+		System.out.println(second);
+		
+		//longest string
+		 
+		String given= ele.stream().reduce((a,b)->a.length()>b.length()?a:b).get();
+		System.out.println("Longest="+ given);
+		
+		//average usig reduce
+		int sums=  list2.stream().reduce(0,(a,b)->a+b);
+		double avg= (double)sums/list2.size();
+		System.out.println(avg);
+		
+
+		
+		
+//		 
+//		
 		//max element
 		List <Integer> list= Arrays.asList(34,112,45,76,36,56,54,32);
 		int max= list.stream().reduce(0, (a,b)->Integer.max(a, b));
 		System.out.println(max);
-		//count
-		List <Integer> list1= Arrays.asList(34,112,45,76,36,56,54,32);
-		int count= list1.stream().reduce(0, (a,b)->a+1);
-		System.out.println(count);
 		
 		
 		//sum of square 
 	//2nd heighest
-		int maxx= list1.stream().reduce(0, (a,b)->a>b?a:b);
+		int maxx= list.stream().reduce(0, (a,b)->a>b?a:b);
 		System.out.println("max"+maxx);
 		
 		int Smax= list.stream().reduce(0, (a,b)->a>b&&a<max?a:b);
 		System.out.println("Smax"+Smax);
 		
 		//lowest
-		int min= list1.stream().reduce(100, (a,b)->a<b?a:b);
+		int min2= list.stream().reduce(100, (a,b)->a<b?a:b);
 		System.out.println("Min"+"Smin= "+min);
-		int Smin= list.stream().reduce(100, (a,b)->a<b&&a>min?a:b);
+		int Smin= list.stream().reduce(100, (a,b)->a<b&&a>min2?a:b);
 		System.out.println(Smin);
 		
 		
